@@ -16,7 +16,7 @@ async function loadProducts() {
             const card = document.createElement("div");
             card.className = "product";
             card.innerHTML = `
-                <img src="http://127.0.0.1:8000${p.image_path}" alt="${p.name}">
+                <img src="https://ecostone.onrender.com${p.image_path}" alt="${p.name}">
                 <h3>${p.name}</h3>
                 <p>${p.price_per_kg} грн/кг</p>
                 <button class="order-btn">Замовити</button>
