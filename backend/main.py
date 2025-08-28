@@ -10,7 +10,6 @@ import random
 import shutil
 import asyncio
 from fastapi.staticfiles import StaticFiles
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
 
 app = FastAPI()
 app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
