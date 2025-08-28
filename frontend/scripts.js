@@ -1,11 +1,14 @@
+const API_URL = "https://ecostone.onrender.com"; // <-- вставляєш тут один раз
+
 window.addEventListener("DOMContentLoaded", () => {
-  document.querySelector(".decor-line2").classList.add("active");
-  document.querySelector(".decor-line3").classList.add("active");
+    document.querySelector(".decor-line2").classList.add("active");
+    document.querySelector(".decor-line3").classList.add("active");
+    loadProducts();
 });
 
 async function loadProducts() {
     try {
-        const res = await fetch("https://ecostone.onrender.com/products");
+        const res = await fetch(`${API_URL}/products`);
         if (!res.ok) throw new Error("Помилка завантаження товарів");
 
         const products = await res.json();
@@ -16,7 +19,7 @@ async function loadProducts() {
             const card = document.createElement("div");
             card.className = "product";
             card.innerHTML = `
-                <img src="https://ecostone.onrender.com${p.image_path}" alt="${p.name}">
+                <img src="${API_URL}${p.image_path}" alt="${p.name}">
                 <h3>${p.name}</h3>
                 <p>${p.price_per_kg} грн/кг</p>
                 <button class="order-btn">Замовити</button>
@@ -24,7 +27,7 @@ async function loadProducts() {
             container.appendChild(card);
 
             const btn = card.querySelector(".order-btn");
-            btn.addEventListener("click", () => addToCart(p));
+            btn.addEventListener("click", (event) => addToCart(p, event));
         });
     } catch (err) {
         console.error(err);
@@ -32,7 +35,7 @@ async function loadProducts() {
     }
 }
 
-function addToCart(product) {
+function addToCart(product, event) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const found = cart.find(item => item.name === product.name);
 
@@ -55,5 +58,3 @@ function addToCart(product) {
         btn.disabled = false;
     }, 2000);
 }
-
-window.addEventListener("DOMContentLoaded", loadProducts);
