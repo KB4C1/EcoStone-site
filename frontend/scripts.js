@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 async function loadProducts() {
     try {
-        const res = await fetch("http://127.0.0.1:8000/products");
+        const res = await fetch("https://ecostone.onrender.com/products");
         if (!res.ok) throw new Error("Помилка завантаження товарів");
 
         const products = await res.json();
