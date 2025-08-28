@@ -1,5 +1,10 @@
 {
     "products": [
-        
+          {
+            "id": "string",
+            "name": "string",
+            "price_per_kg": 0,
+            "image_path": "string"
+        }
     ]
 }
