@@ -12,7 +12,8 @@ import asyncio
 from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
-app.mount("/", StaticFiles(directory="../frontend", html=True), name="frontend")
+frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 # ===== CORS =====
 app.add_middleware(
     CORSMiddleware,
