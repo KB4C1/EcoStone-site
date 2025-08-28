@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 async function loadProducts() {
     try {
-        const res = await fetch("https://ecostone.onrender.com/products");
+        const res = await fetch("https://ecostone.onrender.com:443/products");
         if (!res.ok) throw new Error("Помилка завантаження товарів");
 
         const products = await res.json();
@@ -16,7 +16,7 @@ async function loadProducts() {
             const card = document.createElement("div");
             card.className = "product";
             card.innerHTML = `
-                <img src="https://ecostone.onrender.com${p.image_path}" alt="${p.name}">
+                <img src="https://ecostone.onrender.com:443${p.image_path}" alt="${p.name}">
                 <h3>${p.name}</h3>
                 <p>${p.price_per_kg} грн/кг</p>
                 <button class="order-btn">Замовити</button>
