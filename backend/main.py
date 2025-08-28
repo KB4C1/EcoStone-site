@@ -38,7 +38,7 @@ app.add_middleware(
 
 # ===== FRONTEND =====
 frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
-app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
+app.mount("/frontend", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
 # ===== AUTH =====
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
