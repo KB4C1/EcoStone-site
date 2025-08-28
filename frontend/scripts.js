@@ -43,7 +43,17 @@ function addToCart(product) {
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));
-    alert(`${product.name} додано у корзину ✅`);
+
+    const btn = event.target;
+    const oldText = btn.textContent;
+
+    btn.textContent = "✅ Успішно додано";
+    btn.disabled = true;
+
+    setTimeout(() => {
+        btn.textContent = oldText;
+        btn.disabled = false;
+    }, 2000);
 }
 
 window.addEventListener("DOMContentLoaded", loadProducts);
