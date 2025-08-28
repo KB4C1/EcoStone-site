@@ -1,24 +1,17 @@
-import json, os, random, shutil, asyncio
+import os
+import json
+import random
+import shutil
+import asyncio
 from datetime import datetime, timedelta
 from typing import List, Optional
 
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, Request, Depends, status
-from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
+from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from pydantic import BaseModel
-from typing import List
-import random
-import shutil
-import asyncio
-from fastapi.staticfiles import StaticFiles
-
-app = FastAPI()
-frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
-app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
-# ===== CORS =====
-
 from jose import JWTError, jwt
 from passlib.hash import bcrypt
 from dotenv import load_dotenv
@@ -32,15 +25,20 @@ ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "30")
 ADMIN_USERNAME = os.getenv("ADMIN_USERNAME")
 ADMIN_PASSWORD_HASH = os.getenv("ADMIN_PASSWORD_HASH")
 
+# ===== APP INIT ======
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
-# ===== CORS (в продакшені обмеж доменом) =====
+# ===== CORS =====
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # ⚠️ поміняй на свій фронт
+    allow_origins=["*"],  # ⚠️ Замінити на фронт у продакшені
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+# ===== FRONTEND =====
+frontend_path = os.path.join(os.path.dirname(__file__), "frontend")
+app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 
 # ===== AUTH =====
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
