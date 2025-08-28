@@ -1,4 +1,4 @@
-const API_URL = "https://ecostone.onrender.com"; // <-- вставляєш тут один раз
+const API_URL = "https://eco-stone.onrender.com"; // <-- вставляєш тут один раз
 
 window.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".decor-line2").classList.add("active");
