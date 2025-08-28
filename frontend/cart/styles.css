@@ -1,0 +1,328 @@
+/* ============================= */
+/* ===== Загальні стилі ======== */
+/* ============================= */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif;
+  background-color: #ebebeb;
+  color: #333;
+  scroll-behavior: smooth;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* прибрав горизонтальний скрол */
+}
+
+/* ============================= */
+/* ========= Хедер ==============*/
+/* ============================= */
+.header {
+  width: 100%;
+  background: #fff;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+#email {
+  margin-right: 50px;
+}
+
+#company-name {
+  background: none;   /* прибрали сірий фон кнопки */
+  border: none;       /* прибрали стандартний бордер */
+  padding: 0;         /* без зайвих відступів */
+  cursor: pointer;    /* курсор як кнопка */
+  font-family: "Oswald", sans-serif; /* шрифт як на сайті */
+}
+
+#company-name h1 {
+  margin: 0;
+  padding: 10px 25px;
+  background: rgb(33, 66, 0);
+  color: #fff;
+  font-weight: 700;
+  font-family: "Oswald", sans-serif; /* дублюємо, щоб точно підтягнуло */
+  border: 1px solid #8a8a8a;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
+  margin-left: -20px;
+}
+
+.footer-logo {
+  border: 2px solid white;
+  height: 50px;
+  width: 125px;
+  border-radius: 5px;
+  padding-left: 20px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: rgb(33, 66, 0);
+  font-weight: bold;
+}
+
+.cart-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.cart-btn img {
+  width: 40px;
+  height: 40px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f4f4f4;
+    border: 1px solid #224400;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.cart-info h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.cart-controls button {
+    border: none;
+    background: rgb(33, 66, 0);
+    color: white;
+    font-size: 1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.cart-controls button:hover {
+    background: rgb(50, 99, 0);
+}
+
+.remove-item {
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    color: crimson;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.cart-controls input.count-input {
+  width: 45px;
+  text-align: center;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+.remove-item:hover {
+    transform: scale(1.2);
+}
+
+.cart-controls button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 15px;
+  margin: 8px 0;
+  background: #fff;
+  border: 1px solid #224400;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.cart-total {
+  margin-top: 15px;
+  padding: 10px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: rgb(33, 66, 0);
+}
+
+.cart-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-info h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cart-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.cart-controls {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ============================= */
+/* ===== Декоративні лінії ===== */
+/* ============================= */
+.decor-line,
+.decor-line2,
+.decor-line3 {
+  height: 4px;
+  background-color: rgb(33, 66, 0);
+  margin: 30px auto;
+  transition: width 1s ease-out;
+}
+
+.decor-line { width: 80%; max-width: 870px; }
+.decor-line2 { width: 10px; }
+.decor-line3 { width: 10px; }
+
+.decor-line2.active,
+.decor-line3.active {
+  width: 90%;
+  max-width: 1400px;
+}
+
+/* ============================= */
+/* ========= Вміст ============= */
+/* ============================= */
+
+.cart-container {
+  border: 2px solid rgb(29, 63, 0);
+  max-width: 700px;
+  width: 90%;
+  margin: 50px auto 100px;
+  background: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  max-height: 70vh; /* не вилазить за екран */
+  overflow-y: auto;
+}
+
+.order-btn {
+  background: rgb(29, 63, 0);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 15px;
+}
+
+.order-btn:disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+/* Модалка */
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.active { display: flex; }
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px; right: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+/* ============================= */
+/* ========= Футер ============= */
+/* ============================= */
+.footer {
+  width: 100%;
+  background-color: rgb(29, 63, 0);
+  padding: 30px 20px;
+  margin-top: auto;
+  color: #fff;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 128px;
+}
+
+.footer-logo h3 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: #b5d97c; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-copy {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
