@@ -18,7 +18,7 @@ app = FastAPI()
 frontend_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
 app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
 # ===== CORS =====
-=======
+
 from jose import JWTError, jwt
 from passlib.hash import bcrypt
 from dotenv import load_dotenv
@@ -35,7 +35,6 @@ ADMIN_PASSWORD_HASH = os.getenv("ADMIN_PASSWORD_HASH")
 app = FastAPI(docs_url=None, redoc_url=None, openapi_url=None)
 
 # ===== CORS (в продакшені обмеж доменом) =====
->>>>>>> bc748e6 (Update backend and requirements)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # ⚠️ поміняй на свій фронт
